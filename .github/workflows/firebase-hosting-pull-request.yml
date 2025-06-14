@@ -1,0 +1,31 @@
+# .github/workflows/firebase-static-deploy.yml
+
+name: Deploy Static Next.js 15 Site to Firebase Hosting
+
+on: pull_request
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm ci
+      - run: npm run build:static
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_APEX_SHOES_NEXTJS }}
+          projectId: apex-shoes-nextjs
+          channelId: pr${{ github.event.pull_request.number }}
