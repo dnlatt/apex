@@ -14,7 +14,6 @@ import {
 const PopularProductCard: React.FC<Product> = ({
   imgURL,
   name,
-  price,
   description
 }) => {
   return (

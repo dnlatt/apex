@@ -8,7 +8,7 @@ const cardVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" } 
+    transition: { duration: 0.6, ease: "easeOut" as const } 
   },
 };
 
@@ -17,6 +17,8 @@ const ServiceCard = ({ imgURL, label, subtext }: ServiceCardProps) => {
     <motion.div
       className="flex-1 sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow-3xl px-10 py-16"
       variants={cardVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div className="w-10 h-10 flex justify-center items-center bg-coral-red rounded-full">
         <Image src={imgURL} alt={label} width={20} height={20} />

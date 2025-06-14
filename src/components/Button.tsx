@@ -15,7 +15,6 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   label,
-  iconURL,
   backgroundColor,
   textColor,
   borderColor,
@@ -41,13 +40,6 @@ const Button: React.FC<ButtonProps> = ({
     >
       {label}
 
-      {iconURL && (
-        <img
-          src={iconURL}
-          alt="arrow right icon"
-          className="ml-2 rounded-full bg-white w-5 h-5"
-        />
-      )}
     </button>
   );
 };
