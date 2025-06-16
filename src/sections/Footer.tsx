@@ -10,7 +10,7 @@ const Footer = () => {
           <Copyright />
           <p>Copyright. All rights reserved.</p>
         </div>
-        <p className="font-montserrat cursor-pointer">Terms & Conditions</p>
+        <p className="font-montserrat cursor-pointer">Powered by <a href="https://dnlatt-portfolio.web.app/" target='_blank'>D Naung Latt</a></p>
       </div>
     </footer>
   );
